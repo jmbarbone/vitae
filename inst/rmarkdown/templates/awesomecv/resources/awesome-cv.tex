@@ -157,10 +157,11 @@ $endfor$
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
 % 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+% 2021-06-11 Jordan Mark Barbone - add total page count
 \makecvfooter
   {$date$}
     {$name$$if(surname)$ $surname$$endif$~~~·~~~$if(docname)$$docname$$else$Curriculum Vitae$endif$}
-  {\thepage}
+  {\thepage~ of \pageref{LastPage}~}
 
 
 %-------------------------------------------------------------------------------
@@ -181,4 +182,6 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
+% 2021-06-11 Jordan Mark Barbone - add for the last page reference
+\label{LastPage}~
 \end{document}
